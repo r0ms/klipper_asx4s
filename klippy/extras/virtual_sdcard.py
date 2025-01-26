@@ -3,13 +3,7 @@
 # Copyright (C) 2018-2024  Kevin O'Connor <kevin@koconnor.net>
 #
 # This file may be distributed under the terms of the GNU GPLv3 license.
-<<<<<<< Updated upstream
 import os, sys, logging, io
-=======
-import os, sys, logging
-reload(sys)
-sys.setdefaultencoding('utf-8')
->>>>>>> Stashed changes
 
 VALID_GCODE_EXTS = ['gcode', 'g', 'gco']
 
@@ -308,15 +302,10 @@ class VirtualSD:
             # Dispatch command
             self.cmd_from_sd = True
             line = lines.pop()
-<<<<<<< Updated upstream
             if sys.version_info.major >= 3:
                 next_file_position = self.file_position + len(line.encode()) + 1
             else:
                 next_file_position = self.file_position + len(line) + 1
-=======
-            # logging.info("%s", lines)
-            next_file_position = self.file_position + len(line) + 1
->>>>>>> Stashed changes
             self.next_file_position = next_file_position
             try:
                 self.gcode.run_script(line)

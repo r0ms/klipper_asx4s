@@ -320,14 +320,10 @@ class ShaperCalibrate:
             shaper, test_accel, scv) <= TARGET_SMOOTHING)
         return max_accel
 
-<<<<<<< Updated upstream
     def find_best_shaper(self, calibration_data, shapers=None,
                          damping_ratio=None, scv=None, shaper_freqs=None,
                          max_smoothing=None, test_damping_ratios=None,
                          max_freq=None, logger=None):
-=======
-    def find_best_shaper(self, axis_name, calibration_data, max_smoothing, logger=None):
->>>>>>> Stashed changes
         best_shaper = None
         all_shapers = []
         shapers = shapers or AUTOTUNE_SHAPERS
