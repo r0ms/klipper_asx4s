@@ -13,8 +13,7 @@ MAX_SHAPER_FREQ = 150.
 
 TEST_DAMPING_RATIOS=[0.075, 0.1, 0.15]
 
-#AUTOTUNE_SHAPERS = ['zv', 'mzv', 'ei', '2hump_ei', '3hump_ei']
-AUTOTUNE_SHAPERS = ['zv']
+AUTOTUNE_SHAPERS = ['zv', 'mzv', 'ei', '2hump_ei', '3hump_ei']
 
 ######################################################################
 # Frequency response calculation and shaper auto-tuning
@@ -341,10 +340,6 @@ class ShaperCalibrate:
                 logger("To avoid too much smoothing with '%s', suggested "
                        "max_accel <= %.0f mm/sec^2" % (
                            shaper.name, round(shaper.max_accel / 100.) * 100.))
-            if (shaper.freq < 33 and axis_name == 'y'):
-                shaper = shaper._replace(freq=33)
-            if (shaper.freq > 38 and axis_name == 'y'):
-                shaper = shaper._replace(freq=38)
             all_shapers.append(shaper)
             if (best_shaper is None or shaper.score * 1.2 < best_shaper.score or
                     (shaper.score * 1.05 < best_shaper.score and
