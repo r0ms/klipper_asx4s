@@ -8,13 +8,7 @@ from . import pulse_counter, output_pin
 class Fan:
     def __init__(self, config, default_shutdown_speed=0.):
         self.printer = config.get_printer()
-<<<<<<< Updated upstream
         self.last_fan_value = self.last_req_value = 0.
-=======
-        self.last_fan_value = 0.
-        self.last_fan_time = 0.
-        self.show_fan_value = 0.
->>>>>>> Stashed changes
         # Read config
         self.max_power = config.getfloat('max_power', 1., above=0., maxval=1.)
         self.kick_start_time = config.getfloat('kick_start_time', 0.1,
@@ -83,13 +77,7 @@ class Fan:
     def get_status(self, eventtime):
         tachometer_status = self.tachometer.get_status(eventtime)
         return {
-<<<<<<< Updated upstream
             'speed': self.last_req_value,
-=======
-            'value': self.show_fan_value,
-            'max_power': self.max_power,
-            'speed': self.last_fan_value,
->>>>>>> Stashed changes
             'rpm': tachometer_status['rpm'],
         }
 
